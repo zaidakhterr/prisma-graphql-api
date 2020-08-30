@@ -1,4 +1,4 @@
-const { authors, author, addAuthor } = require("./author");
+const { authors, author, addAuthor, removeAuthor } = require("./author");
 const { books, book } = require("./book");
 
 const resolvers = {
@@ -10,6 +10,7 @@ const resolvers = {
   },
   Mutation: {
     addAuthor,
+    removeAuthor,
   },
 };
 

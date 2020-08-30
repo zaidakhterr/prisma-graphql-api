@@ -28,8 +28,34 @@ const addAuthor = async (_, { name, email }) =>
     },
   });
 
+const removeAuthor = async (_, { id }) => {
+  let toBeDeletedAuthor = await prisma.author.findOne({
+    where: {
+      id,
+    },
+  });
+
+  if (!toBeDeletedAuthor) return null;
+
+  await prisma.book.deleteMany({
+    where: {
+      authorId: id,
+    },
+  });
+
+  return await prisma.author.delete({
+    where: {
+      id,
+    },
+    include: {
+      books: true,
+    },
+  });
+};
+
 module.exports = {
   authors,
   author,
   addAuthor,
+  removeAuthor,
 };
