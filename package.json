@@ -19,11 +19,13 @@
   },
   "homepage": "https://github.com/zaidakhterr/prisma-graphql-api#readme",
   "dependencies": {
+    "@prisma/client": "^2.5.1",
     "apollo-server-express": "^2.17.0",
     "express": "^4.17.1",
     "graphql": "^15.3.0"
   },
   "devDependencies": {
+    "@prisma/cli": "^2.5.1",
     "nodemon": "^2.0.4"
   }
 }
