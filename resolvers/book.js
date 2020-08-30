@@ -17,4 +17,23 @@ const book = async (_, { id }) =>
     },
   });
 
-module.exports = { books, book };
+const addBook = async (_, { title, authorId }) =>
+  await prisma.book.create({
+    data: {
+      title,
+      author: {
+        connect: {
+          id: authorId,
+        },
+      },
+    },
+    include: {
+      author: true,
+    },
+  });
+
+module.exports = {
+  books,
+  book,
+  addBook,
+};

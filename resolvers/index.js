@@ -1,5 +1,5 @@
 const { authors, author, addAuthor, removeAuthor } = require("./author");
-const { books, book } = require("./book");
+const { books, book, addBook } = require("./book");
 
 const resolvers = {
   Query: {
@@ -11,6 +11,7 @@ const resolvers = {
   Mutation: {
     addAuthor,
     removeAuthor,
+    addBook,
   },
 };
 
