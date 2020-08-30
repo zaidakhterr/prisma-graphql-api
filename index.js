@@ -3,7 +3,7 @@ const { ApolloServer, gql } = require("apollo-server-express");
 const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
 
-const main = () => {
+const main = async () => {
   const app = express();
 
   const server = new ApolloServer({
