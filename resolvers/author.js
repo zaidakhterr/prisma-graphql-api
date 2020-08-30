@@ -1,9 +1,20 @@
 const prisma = require("../prisma");
 
-const authors = async () => {
-  const allAuthors = prisma.author.findMany({ include: { books: true } });
+const authors = async () =>
+  await prisma.author.findMany({
+    include: {
+      books: true,
+    },
+  });
 
-  return allAuthors;
-};
+const author = async (_, { id }) =>
+  await prisma.author.findOne({
+    where: {
+      id,
+    },
+    include: {
+      books: true,
+    },
+  });
 
-module.exports = { authors };
+module.exports = { authors, author };

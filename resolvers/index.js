@@ -1,8 +1,9 @@
-const { authors } = require("./author");
+const { authors, author } = require("./author");
 
 const resolvers = {
   Query: {
     authors,
+    author,
   },
 };
 
