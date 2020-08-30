@@ -1,0 +1,25 @@
+{
+  "name": "prisma-graphql-api",
+  "version": "1.0.0",
+  "description": "A simple GraphQL API with prisma and apollo-server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaidakhterr/prisma-graphql-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaidakhterr/prisma-graphql-api/issues"
+  },
+  "homepage": "https://github.com/zaidakhterr/prisma-graphql-api#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.17.0",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0"
+  }
+}
