@@ -1,5 +1,5 @@
 const { authors, author, addAuthor, removeAuthor } = require("./author");
-const { books, book, addBook } = require("./book");
+const { books, book, addBook, removeBook } = require("./book");
 
 const resolvers = {
   Query: {
@@ -12,6 +12,7 @@ const resolvers = {
     addAuthor,
     removeAuthor,
     addBook,
+    removeBook,
   },
 };
 

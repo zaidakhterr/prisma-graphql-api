@@ -32,8 +32,27 @@ const addBook = async (_, { title, authorId }) =>
     },
   });
 
+const removeBook = async (_, { id }) => {
+  let toBeDeletedBook = await prisma.book.findOne({
+    where: {
+      id,
+    },
+  });
+
+  if (!toBeDeletedBook) return null;
+
+  return await prisma.book.delete({
+    where: {
+      id,
+    },
+    include: {
+      author: true,
+    },
+  });
+};
 module.exports = {
   books,
   book,
   addBook,
+  removeBook,
 };
