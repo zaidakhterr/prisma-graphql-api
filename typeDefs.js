@@ -31,10 +31,20 @@ const typeDefs = gql`
     email: Filter
   }
 
+  enum Sort {
+    asc
+    desc
+  }
+
+  input SortBooks {
+    id: Sort
+    title: Sort
+  }
+
   type Query {
     authors(pageNo: Int, filter: FilterAuthors): [Author]!
     author(id: Int!): Author
-    books(pageNo: Int, filter: FilterBooks): [Book]!
+    books(pageNo: Int, filter: FilterBooks, orderBy: SortBooks): [Book]!
     book(id: Int!): Book
   }
 
