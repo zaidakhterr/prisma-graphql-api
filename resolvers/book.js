@@ -2,10 +2,13 @@ const prisma = require("../prisma");
 
 const books = async (_, { pageNo }) =>
   await prisma.book.findMany({
-    skip: 3 * ((pageNo || 1) - 1),
-    take: 3,
+    skip: 5 * ((pageNo || 1) - 1),
+    take: 5,
     include: {
       author: true,
+    },
+    orderBy: {
+      title: "asc",
     },
   });
 
