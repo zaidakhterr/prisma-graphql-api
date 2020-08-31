@@ -4,14 +4,7 @@ const books = async (_, { pageNo, filter }) =>
   await prisma.book.findMany({
     skip: 5 * ((pageNo || 1) - 1),
     take: 5,
-    where: filter
-      ? {
-          title: {
-            contains: filter,
-            mode: "insensitive",
-          },
-        }
-      : {},
+    where: filter || {},
     include: {
       author: true,
     },

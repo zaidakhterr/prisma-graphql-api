@@ -14,10 +14,27 @@ const typeDefs = gql`
     author: Author!
   }
 
+  input Filter {
+    contains: String
+    equals: String
+    not: String
+    startsWith: String
+    endsWith: String
+  }
+
+  input FilterBooks {
+    title: Filter
+  }
+
+  input FilterAuthors {
+    name: Filter
+    email: Filter
+  }
+
   type Query {
-    authors(pageNo: Int, filter: String): [Author]!
+    authors(pageNo: Int, filter: FilterAuthors): [Author]!
     author(id: Int!): Author
-    books(pageNo: Int, filter: String): [Book]!
+    books(pageNo: Int, filter: FilterBooks): [Book]!
     book(id: Int!): Book
   }
 
