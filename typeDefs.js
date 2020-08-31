@@ -22,13 +22,13 @@ const typeDefs = gql`
     endsWith: String
   }
 
-  input FilterBooks {
-    title: Filter
-  }
-
   input FilterAuthors {
     name: Filter
     email: Filter
+  }
+
+  input FilterBooks {
+    title: Filter
   }
 
   enum Sort {
@@ -41,8 +41,14 @@ const typeDefs = gql`
     title: Sort
   }
 
+  input SortAuthors {
+    id: Sort
+    name: Sort
+    email: Sort
+  }
+
   type Query {
-    authors(pageNo: Int, filter: FilterAuthors): [Author]!
+    authors(pageNo: Int, filter: FilterAuthors, orderBy: SortAuthors): [Author]!
     author(id: Int!): Author
     books(pageNo: Int, filter: FilterBooks, orderBy: SortBooks): [Book]!
     book(id: Int!): Book
