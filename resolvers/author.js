@@ -1,9 +1,17 @@
 const prisma = require("../prisma");
 
-const authors = async (_, { pageNo }) =>
+const authors = async (_, { pageNo, filter }) =>
   await prisma.author.findMany({
     skip: 5 * ((pageNo || 1) - 1),
     take: 5,
+    where: filter
+      ? {
+          name: {
+            contains: filter,
+            mode: "insensitive",
+          },
+        }
+      : {},
     include: {
       books: true,
     },

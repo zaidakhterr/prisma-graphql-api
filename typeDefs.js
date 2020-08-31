@@ -15,7 +15,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    authors(pageNo: Int): [Author]!
+    authors(pageNo: Int, filter: String): [Author]!
     author(id: Int!): Author
     books(pageNo: Int, filter: String): [Book]!
     book(id: Int!): Book
