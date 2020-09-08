@@ -3,7 +3,7 @@ const prisma = require("../prisma");
 const authors = async (_, { pageNo, filter, orderBy }) => {
   const authorsList = await prisma.author.findMany({
     skip: 5 * ((pageNo || 1) - 1),
-    take: 5 + 1,
+    take: 6,
     where: filter || {},
     include: {
       books: true,
