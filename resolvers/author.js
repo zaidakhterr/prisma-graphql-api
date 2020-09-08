@@ -1,16 +1,20 @@
 const prisma = require("../prisma");
 
 const authors = async (_, { pageNo, filter, orderBy }) => {
-  console.log(JSON.stringify(filter, null, 2));
-  return await prisma.author.findMany({
+  const authorsList = await prisma.author.findMany({
     skip: 5 * ((pageNo || 1) - 1),
-    take: 5,
+    take: 5 + 1,
     where: filter || {},
     include: {
       books: true,
     },
     orderBy,
   });
+
+  return {
+    list: authorsList.slice(0, 5),
+    hasMore: authorsList.length === 6,
+  };
 };
 
 const author = async (_, { id }) =>

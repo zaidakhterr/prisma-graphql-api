@@ -47,10 +47,20 @@ const typeDefs = gql`
     email: Sort
   }
 
+  type AuthorList {
+    list: [Author]!
+    hasMore: Boolean
+  }
+
+  type BookList {
+    list: [Book]!
+    hasMore: Boolean
+  }
+
   type Query {
-    authors(pageNo: Int, filter: FilterAuthors, orderBy: SortAuthors): [Author]!
+    authors(pageNo: Int, filter: FilterAuthors, orderBy: SortAuthors): AuthorList
     author(id: Int!): Author
-    books(pageNo: Int, filter: FilterBooks, orderBy: SortBooks): [Book]!
+    books(pageNo: Int, filter: FilterBooks, orderBy: SortBooks): BookList
     book(id: Int!): Book
   }
 
